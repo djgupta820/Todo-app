@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.ball{
+    width: 250px;
+    height: 250px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(to top, rgb(1, 82, 1), rgb(2, 138, 2), rgb(5, 214, 5), rgb(47, 248, 47));
+    position: absolute;
+    bottom: 0;
+    /* left: 5em; */
+    z-index: -10;
+    animation: bounce 5s ease-in-out infinite;
+}
+@keyframes bounce{
+    50%{
+        transform:translateY(-600px);
+    }
+}
+.lh1{
+    /* width: 99%; */
+    background-color: green;
+    text-align: center;
+    padding: 0.2em;
+    color: white;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+form{
+    width: fit-content;
+    border: 1px solid gray;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: auto;
+    margin-top: 2em;
+    box-shadow: 2px 2px 10px 2px gray;
+}
+form > h1{
+    border-bottom: 1px solid green;
+    padding-bottom: 0.2em;
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.form-field label{
+    font-size: 1.3em;
+    color: rgb(70, 68, 68);
+}
+.form-field input{
+    font-size: 1.1em;
+    padding: 0.2em;
+    outline: none;
+    min-width: 300px;
+}
+form > button{
+    border: 0.1em solid green;
+    background-color: green;
+    font-size: 1em;
+    color: white;
+    letter-spacing: 0.3em;
+    font-weight: bold;
+    padding: .5em;
+    box-shadow: 2px 2px 10px 2px green;
+}
+.form > p{
+    font-size: 1.1em;
+}
