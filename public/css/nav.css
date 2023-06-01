@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.menu{
+    font-size: 2em;
+    display: none;
+}
+.menu i{
+    color: white;
+    position: absolute;
+    top: 4px;
+    left: 30px;
+}
+.topnav{
+    background-color: green;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+.topnav a{
+    font-size: 1.2em;
+    position: absolute;
+    right: 5em;
+}
+.topnav a:hover{
+    transition: 200ms;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid white;
+}
+.sidenav{
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    width: 300px;
+    height: 93.8vh;
+    position: fixed;
+    left: 0;
+    padding: 1em;
+}
+.profile{
+    width: 90%;
+    height: 40%;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.links{
+    width: 90%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.links a{
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+.links a:hover{
+    transition: 200ms;
+    border-bottom: 0.1em solid white;
+    padding-bottom: 0.2em;
+}
+.sidenav > button{
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    border:0.1em solid white;
+    color: white;
+    background-color: green;
+}
+.sidenav > button:hover{
+    transition: 200ms;
+    background-color: rgb(218, 214, 214);
+    color: green;
+    box-shadow: 2px 2px 8px 2px white;
+}
+
+@media all and (width < 950px){
+    .menu{
+        display: block;
+    }
+    .sidenav{
+        position: absolute;
+        top: 40px;
+        left: -300px;
+        transition: left 200ms linear;
+        z-index: 100;
+    }
+}

@@ -15,6 +15,10 @@ app.get('/register', (req,res)=>{
     res.render('register')
 })
 
+app.get('/dashboard', (req,res)=>{
+    res.render('dashboard')
+})
+
 app.listen('5000', (req,res)=>{
     console.log('server running at http://localhost:5000')
 })
