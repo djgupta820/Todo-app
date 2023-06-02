@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family:monospace;
 }
 .ball{
     width: 250px;
@@ -62,6 +63,12 @@ form > h1{
     outline: none;
     min-width: 300px;
 }
+.form-field textarea{
+    font-size: 1.1em;
+    padding: 0.2em;
+    outline: none;
+    min-width: 300px;
+}
 form > button{
     border: 0.1em solid green;
     background-color: green;
@@ -86,8 +93,11 @@ form > button{
     margin-left: 300px;
 }
 .container > h1{
-    width: 100%;
+    margin: auto;
+    width: 99%;
     text-align: center;
+    padding-bottom: 1em;
+    border-bottom: 1px solid green;
 }
 .show-profile{
     width: 100%;
