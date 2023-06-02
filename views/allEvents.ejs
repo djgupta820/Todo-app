@@ -1,0 +1,30 @@
+<%- include('./partials/nav') %>
+<link rel="stylesheet" href="/css/style.css">
+<title>All Events</title>
+
+<div class="container">
+    <% if (message) { %>
+        <div class="<%= type %>">
+            <h3> <%= message %> </h3>
+        </div>
+    <% } %>
+    <h1>All Events</h1>
+    <div class="events">
+        <% if (events.length == 0) { %>
+            <div class="danger">
+                <h1>No Event To Show</h1>
+            </div>
+        <% } else { %>
+            <% for(let event of events) {%>
+                <div class="event">
+                    <h3> <%= event.title %> </h3>
+                    <h3> <%= event.time %> </h3>
+                    <p> <%= event.description %> </p>
+                    <form action="/deleteEvent/<%= event._id %>" method="get">
+                        <button class="btn-danger"> Delete </button>
+                    </form>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>

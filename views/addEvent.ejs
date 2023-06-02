@@ -1,0 +1,27 @@
+<%- include('./partials/nav') %>
+<link rel="stylesheet" href="/css/style.css">
+<title>Add New Event</title>
+
+<div class="container">
+    <% if (message) { %>
+        <div class="<%= type %>">
+            <%= message %>
+        </div>
+    <% } %>
+    <form action="/add-event" method="get">
+        <h1>Add New Event</h1>
+        <div class="form-field">
+            <label for="title"> Title </label>
+            <input type="text" name="title" id="title" required placeholder="Meeting">
+        </div>
+        <div class="form-field">
+            <label for="time"> Time </label>
+            <input type="time" name="time" id="time" required placeholder="12:00">
+        </div>
+        <div class="form-field">
+            <label for="description"> Description </label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <button> Add Event </button>
+    </form>
+</div>

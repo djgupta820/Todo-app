@@ -1,1 +1,12 @@
 <%- include('./partials/nav') %>
+<link rel="stylesheet" href="/css/style.css">
+<title>Dashboard</title>
+
+<div class="container">
+    <% if (message) { %>
+        <div class="success">
+            <h1> <%= message %> </h1>
+        </div>
+    <% } %>
+    <p class="dash-p">Manage all your events here</p>
+</div>

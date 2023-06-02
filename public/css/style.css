@@ -75,3 +75,89 @@ form > button{
 .form > p{
     font-size: 1.1em;
 }
+.dash-p{
+    width: 100%;
+    margin-top: 5em;
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 2px 1px gray;
+}
+.container{
+    margin-left: 300px;
+}
+.container > h1{
+    width: 100%;
+    text-align: center;
+}
+.show-profile{
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+.events{
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.event{
+    margin: auto;
+    min-width: 150px;
+    max-width: 30%;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+.event > form{
+    box-shadow: none;
+    border: none;
+    margin: 0;
+}
+.event > form > button{
+    box-shadow: none;
+    letter-spacing: normal;
+}
+.btn-danger{
+    border: 0.1em solid red;
+    border-radius: 4px;
+    padding: 8px 14px;
+    background-color: white;
+    color: red;
+}
+.btn-danger:hover{
+    transition: 200ms;
+    background-color: red;
+    color: white;
+    box-shadow: 1px 1px 5px 1px red;
+}
+.danger{
+    border: 1px solid red;
+    background-color: rgb(245, 200, 200);
+    border-radius: 2px;
+    margin: auto;
+    text-align: center;
+    padding: 1em;
+}
+.success{
+    border: 1px solid green;
+    background-color: rgb(153, 243, 153);
+    border-radius: 2px;
+    margin: auto;
+    text-align: center;
+    padding: 1em;
+}
+
+@media all and (width < 950px){
+    .container{
+        margin-left: 0;
+    }
+}

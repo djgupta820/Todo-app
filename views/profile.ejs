@@ -1,0 +1,31 @@
+<%- include('./partials/nav') %>
+<link rel="stylesheet" href="/css/style.css">
+<div class="container">
+    <h1>Profile</h1>
+    <div class="show-profile">
+        <div class="image">
+            <img src="/images/user.png" alt="profile">
+            <h2> <%= user.username %> </h2>
+        </div>
+        <div class="data">
+            <form action="" method="get">
+                <div class="form-field" style="margin-top: 2em;">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="<%= user.name %>" disabled>
+                </div>
+                <div class="form-field" style="margin-top: 1em;">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="<%= user.email %>" disabled>
+                </div>
+                <div class="form-field" style="margin-top: 1em;">
+                    <label for="password">Password Hash</label>
+                    <input type="text" name="password" id="password" value="<%= user.password %>" disabled>
+                </div>
+                
+                <!-- <button id="edit-profile"> Edit </button> -->
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/main.js"></script>
