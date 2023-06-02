@@ -126,6 +126,11 @@ form > button{
     align-items: center;
     gap: 0.5em;
     margin-top: 1em;
+    box-shadow: 2px 2px 8px 2px gray;
+}
+.event:hover{
+    transition: 200ms;
+    background-color: rgb(243, 235, 235);
 }
 .event > form{
     box-shadow: none;

@@ -18,23 +18,52 @@ mongoose.connect('mongodb://127.0.0.1:27017/todoapp').then((msg)=>{
 })
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    username: String,
-    email: String,
-    password: String
+    name: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 })
 
 const eventSchema = new mongoose.Schema({
-    user: String,
-    title: String,
-    time: String,
-    description: String
+    user: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
 })
 
 const User = new mongoose.model('User', userSchema)
 const Event = new mongoose.model('Event', eventSchema)
 
-var _user = {}
+var _user = null
+
 /* ----------------------------------------------------------------------- */
 
 app.get('/', (req,res)=>{
@@ -88,23 +117,40 @@ app.get('/registerUser', (req,res)=>{
 })
 
 app.get('/dashboard', (req,res)=>{
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
     res.render('dashboard', {user: _user, message: "Welcome to Dashboard"})
 })
 
 app.get('/profile', (req,res)=>{
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
     res.render('profile', {user:_user})
 })
 
 app.get('/addEvent', (req,res)=>{
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
     const message = ""
     res.render('addEvent', {user: _user, message: message})
 })
 
 app.get('/add-event', (req,res)=>{
-    const {title, time, description} = req.query
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
+    const {title,date, time, description} = req.query
     Event.create({
         user: _user.username,
         title: title,
+        date: date,
         time: time,
         description: description
     }).then((msg)=>{
@@ -118,10 +164,13 @@ app.get('/add-event', (req,res)=>{
     })
 })
 
-app.get('/allEvents', (req,res)=>{
+app.get('/all-events', (req,res)=>{
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
     Event.find({ user: _user.username }).then((msg)=>{
         const message = ''
-        console.log(msg)
         res.render('allEvents', {user: _user, events:msg, message:message})
     }).catch((err)=>{
         console.log(err)
@@ -129,16 +178,15 @@ app.get('/allEvents', (req,res)=>{
 })
 
 app.get('/deleteEvent/:eventid', (req,res)=>{
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
     const {eventid} = req.params
-    console.log(eventid)
     Event.findByIdAndDelete({_id: eventid}).then((msg)=>{
-        Event.find({ user: _user.user }).then((msg)=>{
+        Event.find({user: _user.username}).then((msg)=>{
             const message = "Event Deleted! "
             const type = 'success'
-            res.render('allEvents', {user: _user, events:msg, message:message, type:type})
-        }).catch((err)=>{
-            const message = "Couldn't Delete! "
-            const type = 'danger'
             res.render('allEvents', {user: _user, events:msg, message:message, type:type})
         })
     }).catch((err)=>{
@@ -147,10 +195,21 @@ app.get('/deleteEvent/:eventid', (req,res)=>{
 })
 
 app.get('/logout', (req,res)=>{
-    console.log(_user)
+    if(_user === null){
+        res.redirect('error')
+        return
+    }
+    _user = null
     res.render('logout')
 })
 
+app.get('/error', (req,res)=>{
+    res.render('error')
+})
 app.listen('5000', (req,res)=>{
     console.log('server running at http://localhost:5000')
 })
+
+/* djgupta820 
+   djgupta
+*/

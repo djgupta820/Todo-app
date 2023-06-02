@@ -18,6 +18,7 @@
             <% for(let event of events) {%>
                 <div class="event">
                     <h3> <%= event.title %> </h3>
+                    <h3> <%= event.date %> </h3>
                     <h3> <%= event.time %> </h3>
                     <p> <%= event.description %> </p>
                     <form action="/deleteEvent/<%= event._id %>" method="get">

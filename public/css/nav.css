@@ -66,11 +66,11 @@ a{
 .links a{
     margin-top: 0.3em;
     margin-bottom: 0.3em;
+    font-size: 1.3em;
 }
 .links a:hover{
     transition: 200ms;
-    border-bottom: 0.1em solid white;
-    padding-bottom: 0.2em;
+    color: rgb(0, 255, 0);
 }
 .sidenav > button{
     padding: 0.5em;
